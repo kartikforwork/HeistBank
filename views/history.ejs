@@ -1,0 +1,42 @@
+<%layout('layout')%>
+<style>
+  body {
+      background-image: url('https://wallpapers.com/images/high/money-heist-minimalist-art-p7dc1dv8ejb20ebv.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+  }
+</style>
+<div class="d-flex justify-content-center align-items-center flex-grow-1">
+  <table class="table table-dark table-hover border border-light m-5">
+    <thead>
+      <tr>
+        <th  style="background-color: transparent;">Serial No.</th>
+        <th scope="col"  style="background-color: transparent;">Sender</th>
+        <th scope="col"  style="background-color: transparent;">Recipient</th>
+        <th scope="col"  style="background-color: transparent;">Amount</th>
+        <th scope="col"  style="background-color: transparent;">Date</th>
+        <th scope="col"  style="background-color: transparent;">Time</th> <!-- Add a new column for time -->
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <% for (let i=0; i < TransactionData.length; i++) { %>
+        <tr>
+          <th scope="row"   style="background-color: transparent;">
+            <%= i + 1 %>.
+          </th>
+          <td   style="background-color: transparent;">
+            <%= TransactionData[i].sender %>
+          </td>
+          <td   style="background-color: transparent;">
+            <%= TransactionData[i].receiver %>
+          </td>
+          <td   style="background-color: transparent;">
+            ₹<%= TransactionData[i].amount %>
+          </td>
+          <td   style="background-color: transparent;"><%= new Date(TransactionData[i].date).toLocaleDateString() %></td>
+          <td   style="background-color: transparent;"><%= new Date(TransactionData[i].date).toLocaleTimeString() %></td>
+        </tr>
+        <% } %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,31 @@
+<%layout('layout')%>
+<style>
+   body {
+      background: linear-gradient(to right, 	#9e0217, black);
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh; /* Set the background to cover the entire viewport height */
+    }
+</style>
+<div class="d-flex justify-content-center align-items-center flex-grow-1">
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="<%= oneCustomerData.img %>" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= oneCustomerData.name %></h5>
+              <h6 class="card-title">9012 5678 1234 3456</h6>
+               <hr>
+               <p class="card-text">Email: <%= oneCustomerData.email %></p>
+               <p class="card-text">Contact No.: <%= oneCustomerData.phone %></p>
+               <p class="card-text">Account Balance: ₹<%= oneCustomerData.amountAvailable %></p>
+              <!-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
+              <a href="/heistbank/customers/<%=oneCustomerData.id%>/transfer" class="btn btn-primary">Transfer Money</a>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
